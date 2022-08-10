@@ -1,7 +1,7 @@
 FROM golang:latest AS builder
 
 # Clone source code
-RUN git clone https://github.com/xteve-project/xTeVe.git
+RUN git clone https://github.com/xteve-project/xTeVe.git xteve && cd xteve
 # Install dependencies
 RUN go get github.com/koron/go-ssdp && go get github.com/gorilla/websocket && go get github.com/kardianos/osext
 # Checkout latest version
@@ -17,7 +17,7 @@ FROM alpine:latest
 # Partially based on https://github.com/alturismo/xteve/blob/master/Dockerfile
 VOLUME /root/.xteve
 VOLUME /tmp/xteve
-COPY --from=builder xteve /usr/local/bin/xteve
+COPY --from=builder xteve/xteve /usr/local/bin/xteve
 RUN chmod +x /usr/bin/xteve
 
 # Set timezone
