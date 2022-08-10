@@ -17,7 +17,6 @@ FROM alpine:latest
 # Partially based on https://github.com/alturismo/xteve/blob/master/Dockerfile
 VOLUME /root/.xteve
 VOLUME /tmp/xteve
-ADD entrypoint.sh /entrypoint.sh
 COPY --from=builder xteve /usr/local/bin/xteve
 RUN chmod +x /usr/bin/xteve
 
