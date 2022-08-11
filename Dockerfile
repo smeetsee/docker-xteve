@@ -17,8 +17,8 @@ VOLUME /tmp/xteve
 COPY --from=builder /go/src/github.com/xteve-project/xteve/xteve /usr/local/bin/xteve
 RUN chmod +x /usr/local/bin/xteve
 
-# Set timezone
-RUN apk update && apk add --no-cache tzdata
+# Set timezone & install compatibility libraries according to https://stackoverflow.com/questions/51508150/standard-init-linux-go190-exec-user-process-caused-no-such-file-or-directory#comment117747592_62123648
+RUN apk add --no-cache tzdata libc6-compat
 ENV TZ=Europe/Amsterdam
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
