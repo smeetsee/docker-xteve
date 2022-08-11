@@ -15,7 +15,7 @@ FROM alpine:latest
 VOLUME /root/.xteve
 VOLUME /tmp/xteve
 COPY --from=builder /go/src/github.com/xteve-project/xteve/xteve /usr/local/bin/xteve
-RUN chmod +x /usr/bin/xteve
+RUN chmod +x /usr/local/bin/xteve
 
 # Set timezone
 RUN apk update && apk add --no-cache tzdata
