@@ -1,0 +1,15 @@
+version: '3.6'
+
+services:
+  xteve:
+    image: ghcr.io/smeetsre/docker-xteve:main
+    # build:
+    #   context: .
+    #   dockerfile: Dockerfile
+    container_name: xteve
+    volumes:
+      - ./root:/root/.xteve
+      - ./tmp:/tmp/xteve
+    ports:
+      - 34400:34400
+    restart: unless-stopped
