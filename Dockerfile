@@ -37,4 +37,4 @@ EXPOSE 34400
 USER xteve
 
 # Define executable with parameters
-ENTRYPOINT [ "/usr/local/bin/xteve","-config=/root/.xteve/" ]
+ENTRYPOINT [ "/usr/local/bin/xteve","-config=/home/xteve/.xteve/" ]
