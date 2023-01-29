@@ -42,7 +42,7 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@main'
+        uses: sigstore/cosign-installer@main
 
       # Added to fix https://github.com/docker/buildx/issues/499#issuecomment-763920971
       - name: Set up QEMU
