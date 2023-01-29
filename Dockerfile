@@ -10,9 +10,8 @@ RUN git clone https://github.com/xteve-project/xTeVe.git /go/src/github.com/xtev
 # Actual container
 FROM alpine:latest
 
-# Based on https://stackoverflow.com/a/63110882/2378368
-RUN groupadd -r -g 2001 xteve \
-    && useradd -r -u 1001 -g xteve xteve
+# Based on https://stackoverflow.com/a/49955098/2378368 and https://stackoverflow.com/a/63110882/2378368
+RUN addgroup -S xteve && adduser -S xteve -G xteve
 RUN mkdir /home/xteve \
     && chown xteve /home/xteve
 
@@ -35,6 +34,9 @@ RUN apk add --no-cache vlc || true
 
 # xTeVe runs on port 34400
 EXPOSE 34400
+
+# Set user, based on https://stackoverflow.com/a/49955098/2378368
+USER xteve
 
 # Define executable with parameters
 ENTRYPOINT [ "/usr/local/bin/xteve","-config=/root/.xteve/" ]
