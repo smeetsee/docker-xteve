@@ -7,12 +7,17 @@ RUN git clone https://github.com/xteve-project/xTeVe.git /go/src/github.com/xtev
     go build xteve.go
 
 
-
 # Actual container
 FROM alpine:latest
 
+# Based on https://stackoverflow.com/a/63110882/2378368
+RUN groupadd -r -g 2001 xteve \
+    && useradd -r -u 1001 -g xteve xteve
+RUN mkdir /home/xteve \
+    && chown xteve /home/xteve
+
 # Partially based on https://github.com/alturismo/xteve/blob/master/Dockerfile
-VOLUME /root/.xteve
+VOLUME /home/xteve/.xteve
 VOLUME /tmp/xteve
 COPY --from=builder /go/src/github.com/xteve-project/xteve/xteve /usr/local/bin/xteve
 RUN chmod +x /usr/local/bin/xteve

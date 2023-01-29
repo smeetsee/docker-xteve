@@ -8,7 +8,7 @@ services:
     #   dockerfile: Dockerfile
     container_name: xteve
     volumes:
-      - ./root:/root/.xteve
+      - ./root:/home/xteve/.xteve
       - ./tmp:/tmp/xteve
     ports:
       - 34400:34400
