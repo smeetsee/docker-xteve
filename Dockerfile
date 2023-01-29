@@ -25,6 +25,9 @@ RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 # Instal ffmpeg
 RUN apk add --no-cache ffmpeg
 
+# Install VLC
+RUN apk add --no-cache vlc
+
 # xTeVe runs on port 34400
 EXPOSE 34400
 
