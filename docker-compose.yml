@@ -2,7 +2,7 @@ version: '3.6'
 
 services:
   xteve:
-    image: ghcr.io/smeetsre/docker-xteve:main
+    image: ghcr.io/smeetsee/docker-xteve:main
     # build:
     #   context: .
     #   dockerfile: Dockerfile
