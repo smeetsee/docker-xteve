@@ -10,6 +10,9 @@ RUN git clone https://github.com/xteve-project/xTeVe.git /go/src/github.com/xtev
 # Actual container
 FROM alpine:latest
 
+# For entrypoint script
+RUN apk add --no-cache bash
+
 # Based on https://stackoverflow.com/a/49955098/2378368 and https://stackoverflow.com/a/63110882/2378368
 RUN addgroup -g 2001 -S xteve && adduser -D -h /home/container -u 1001 -S container -G xteve
 
@@ -40,5 +43,4 @@ ENV  USER=container HOME=/home/container
 # ENTRYPOINT [ "/usr/local/bin/xteve","-config=/home/container/.xteve/" ]
 WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
-RUN apk add --no-cache bash
 CMD ["/bin/bash", "/entrypoint.sh"]
