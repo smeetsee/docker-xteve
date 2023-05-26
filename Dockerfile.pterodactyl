@@ -40,4 +40,5 @@ ENV  USER=container HOME=/home/container
 # ENTRYPOINT [ "/usr/local/bin/xteve","-config=/home/container/.xteve/" ]
 WORKDIR /home/container
 COPY ./entrypoint.sh /entrypoint.sh
+RUN apk add --no-cache bash
 CMD ["/bin/bash", "/entrypoint.sh"]
