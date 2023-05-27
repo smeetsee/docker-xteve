@@ -22,7 +22,7 @@ COPY --from=builder /go/src/github.com/xteve-project/xteve/xteve /usr/local/bin/
 RUN chmod +x /usr/local/bin/xteve
 
 # Set timezone & install compatibility libraries according to https://stackoverflow.com/questions/51508150/standard-init-linux-go190-exec-user-process-caused-no-such-file-or-directory#comment117747592_62123648
-RUN apk add --no-cache tzdata libc6-compat
+RUN apk add --no-cache tzdata libc6-compat gcompat
 ENV TZ=Europe/Amsterdam
 RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 
