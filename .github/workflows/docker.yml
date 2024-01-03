@@ -80,7 +80,7 @@ jobs:
           context: .
           push: false
           target: builder
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -93,7 +93,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile
 
       # Sign the resulting Docker image digest except on PRs.
@@ -165,7 +165,7 @@ jobs:
           context: .
           push: false
           target: builder
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile.pterodactyl
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -178,7 +178,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile.pterodactyl
 
       # Sign the resulting Docker image digest except on PRs.
@@ -250,7 +250,7 @@ jobs:
           context: .
           push: false
           target: builder
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile.pterodactyl.alt
 
       # Build and push Docker image with Buildx (don't push on PR)
@@ -263,7 +263,7 @@ jobs:
           push: ${{ github.event_name != 'pull_request' }}
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7, linux/arm/v6
+          platforms: linux/amd64, linux/arm64/v8, linux/386, linux/arm/v7
           file: ./Dockerfile.pterodactyl.alt
 
       # Sign the resulting Docker image digest except on PRs.
