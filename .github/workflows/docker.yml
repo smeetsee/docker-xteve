@@ -42,9 +42,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 # v2.6.0
+        uses: sigstore/cosign-installer@v3.1.2 #v2.6.0
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.2.0'
 
       # Added to fix https://github.com/docker/buildx/issues/499#issuecomment-763920971
       - name: Set up QEMU
@@ -107,7 +107,7 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }} -y
 
   build_pterodactyl:
 
@@ -127,9 +127,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 # v2.6.0
+        uses: sigstore/cosign-installer@v3.1.2 #v2.6.0
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.2.0'
 
       # Added to fix https://github.com/docker/buildx/issues/499#issuecomment-763920971
       - name: Set up QEMU
@@ -192,7 +192,7 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }} -y
 
   build_pterodactyl_alt:
 
@@ -212,9 +212,9 @@ jobs:
       # https://github.com/sigstore/cosign-installer
       - name: Install cosign
         if: github.event_name != 'pull_request'
-        uses: sigstore/cosign-installer@f3c664df7af409cb4873aa5068053ba9d61a57b6 # v2.6.0
+        uses: sigstore/cosign-installer@v3.1.2 #v2.6.0
         with:
-          cosign-release: 'v1.13.1'
+          cosign-release: 'v2.2.0'
 
       # Added to fix https://github.com/docker/buildx/issues/499#issuecomment-763920971
       - name: Set up QEMU
@@ -277,4 +277,4 @@ jobs:
           COSIGN_EXPERIMENTAL: "true"
         # This step uses the identity token to provision an ephemeral certificate
         # against the sigstore community Fulcio instance.
-        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }}
+        run: echo "${{ steps.meta.outputs.tags }}" | xargs -I {} cosign sign {}@${{ steps.build-and-push.outputs.digest }} -y
